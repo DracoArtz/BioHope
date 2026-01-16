@@ -14,6 +14,7 @@ public class TrainCarScript : MonoBehaviour
     public GameObject asteroid;
     Transform spawnPoint;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,12 +48,12 @@ public class TrainCarScript : MonoBehaviour
             else trainCar.transform.position = new Vector2(trainCar.transform.position.x,
                                                trainCar.transform.position.y + dirY);
         }
-        if (collision.gameObject.tag == "bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
-            Instantiate(asteroid, spawnPoint.gameObject.transform);
+            var ia = Instantiate(asteroid, spawnPoint.gameObject.transform);
+            ia.gameObject.transform.SetParent(null);
             Destroy(collision.gameObject);
-            trainCar.GetComponent<SpriteRenderer>().enabled = false;
-            trainCar.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(trainCar);
         }
     }
 }

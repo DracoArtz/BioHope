@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     GameObject ship;
     float moveInputX;
     float moveInputY;
-    float moveSpeed = 8f;
+    float moveSpeed = 14.0f;
     Rigidbody2D rb2d;
 
     [SerializeField]
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     bool fired = false;
 
     [SerializeField]
-    float bulletSpeed = 12.0f;
+    float bulletSpeed = 18.0f;
 
     int lives = 3;
     public GameObject[] livesIMG;
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         fired = true;
         var fb = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         fb.GetComponent<Rigidbody2D>().AddForce(spawnPoint.up * bulletSpeed, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.15f);
         fired = false;
     }
     IEnumerator TakeDamage()

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trainCar: {fileID: 3101545397554957045}
   asteroid: {fileID: 8302332912972372764, guid: 506a55259f1357a4e839390cd8d2012d, type: 3}
+  trainManager: {fileID: 1304411532973538863, guid: 3097e21717746714aa2cf181d8c99649, type: 3}
 --- !u!50 &2341065597356719150
 Rigidbody2D:
   serializedVersion: 5
