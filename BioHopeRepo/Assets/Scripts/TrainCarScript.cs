@@ -14,6 +14,8 @@ public class TrainCarScript : MonoBehaviour
     public GameObject asteroid;
     Transform spawnPoint;
 
+    public Player player;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,6 +56,8 @@ public class TrainCarScript : MonoBehaviour
             ia.gameObject.transform.SetParent(null);
             Destroy(collision.gameObject);
             Destroy(trainCar);
+            player.score += 20;
+            player.SetScore();
         }
     }
 }

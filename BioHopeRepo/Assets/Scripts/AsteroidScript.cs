@@ -4,6 +4,9 @@ public class AsteroidScript : MonoBehaviour
 {
     [SerializeField]
     GameObject asteroid;
+
+    public Player player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +24,8 @@ public class AsteroidScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(asteroid);
+            player.score += 10;
+            player.SetScore();
         }
     }
 }

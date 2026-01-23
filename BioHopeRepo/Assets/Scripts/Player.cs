@@ -3,8 +3,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEditor.Experimental.GraphView;
+using TMPro;
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    TMP_Text scoreText;
+    public int score;
+
     [SerializeField]
     GameObject ship;
     float moveInputX;
@@ -29,7 +34,7 @@ public class Player : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         spawnPoint = transform;
-
+        score = 0;
     }
     private void Update()
     {
@@ -51,6 +56,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
         if (ship.transform.position.y < 0 || moveInputY < 0) rb2d.linearVelocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);
         else rb2d.linearVelocity = new Vector2(moveInputX * moveSpeed, 0 * moveSpeed);
     }
@@ -82,5 +88,9 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(TakeDamage());
         }
+    }
+    public void SetScore()
+    {
+        scoreText.text = "Score:" + score.ToString();
     }
 }
