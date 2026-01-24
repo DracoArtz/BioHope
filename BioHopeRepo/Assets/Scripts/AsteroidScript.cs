@@ -24,8 +24,8 @@ public class AsteroidScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(asteroid);
-            player.score += 10;
-            player.SetScore();
+            //player.score += 10;
+            //player.SetScore();
         }
     }
 }

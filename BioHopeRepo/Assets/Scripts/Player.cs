@@ -1,8 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 using TMPro;
 public class Player : MonoBehaviour
 {
@@ -89,8 +87,8 @@ public class Player : MonoBehaviour
             StartCoroutine(TakeDamage());
         }
     }
-    public void SetScore()
-    {
-        scoreText.text = "Score:" + score.ToString();
-    }
+    //public void SetScore()
+    //{
+    //    scoreText.text = "Score:" + score.ToString();
+    //}
 }

@@ -56,8 +56,8 @@ public class TrainCarScript : MonoBehaviour
             ia.gameObject.transform.SetParent(null);
             Destroy(collision.gameObject);
             Destroy(trainCar);
-            player.score += 20;
-            player.SetScore();
+            //player.score += 20;
+            //player.SetScore();
         }
     }
 }
