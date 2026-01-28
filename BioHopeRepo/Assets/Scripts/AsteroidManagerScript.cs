@@ -12,6 +12,11 @@ public class AsteroidManagerScript : MonoBehaviour
     float X;
     int startingAsteroids = 12;
     public Transform spawnpoint;
+
+    //Sprites
+    //public Sprite[] asteroidsSprites;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,4 +38,12 @@ public class AsteroidManagerScript : MonoBehaviour
     {
         
     }
+
+    //public void AsteriodSprite()
+    //{
+    //    int spriteCount = asteroidsSprites.Length;
+    //    int choosenSprite = Random.Range(0, spriteCount);
+
+    //    asteroid.GetComponent<SpriteRenderer>().sprite = asteroidsSprites[choosenSprite];
+    //}
 }
