@@ -28,9 +28,13 @@ public class Player : MonoBehaviour
     public GameObject[] livesIMG;
     bool canTakeDamage = true;
 
+    //Animation Controls
+    Animator anim;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         spawnPoint = transform;
         score = 0;
     }
@@ -54,6 +58,35 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //Tilting right
+        if(Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("Right", true);
+        }
+        else
+        {
+            anim.SetBool("Right", false);
+        }
+
+        //Tilting left
+        if(Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("Left", true);
+        }
+        else
+        {
+            anim.SetBool("Left", false);
+        }
+
+        //Change sprite moving up
+        if(Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("Foward", true);
+        }
+        else
+        {
+            anim.SetBool("Foward", false);
+        }
 
         if (ship.transform.position.y < 0 || moveInputY < 0) rb2d.linearVelocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);
         else rb2d.linearVelocity = new Vector2(moveInputX * moveSpeed, 0 * moveSpeed);
