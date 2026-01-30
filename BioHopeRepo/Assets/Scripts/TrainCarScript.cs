@@ -16,7 +16,9 @@ public class TrainCarScript : MonoBehaviour
 
     public Player player;
 
+    bool isFacingLeft = false;
 
+    public ScoreScript scoreScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,7 @@ public class TrainCarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        trainCar.GetComponent<SpriteRenderer>().flipX = isFacingLeft;
 
     }
     private void FixedUpdate()
@@ -41,6 +44,7 @@ public class TrainCarScript : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             dirX = -dirX;
+            isFacingLeft = !isFacingLeft;
             if (trainCar.transform.position.y >= 6 || trainCar.transform.position.y <= -6)
             {
                 dirY = -dirY;
@@ -54,10 +58,11 @@ public class TrainCarScript : MonoBehaviour
         {
             var ia = Instantiate(asteroid, spawnPoint.gameObject.transform);
             ia.gameObject.transform.SetParent(null);
+            //meant to update score but doesn't
+            scoreScript.UpdateScore(20);
             Destroy(collision.gameObject);
             Destroy(trainCar);
-            //player.score += 20;
-            //player.SetScore();
+
         }
     }
 }

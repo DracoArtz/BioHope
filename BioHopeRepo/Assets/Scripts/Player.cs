@@ -2,12 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    TMP_Text scoreText;
-    public int score;
-
     [SerializeField]
     GameObject ship;
     float moveInputX;
@@ -36,7 +33,6 @@ public class Player : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spawnPoint = transform;
-        score = 0;
     }
     private void Update()
     {
@@ -49,7 +45,8 @@ public class Player : MonoBehaviour
         {
             livesIMG[1].SetActive(false);
         }
-        //else sceneManager.loadscene("GameOver")
+        else SceneManager.LoadScene("GameOver");
+
     }
     public void Move(InputAction.CallbackContext ctx)
     {
@@ -120,8 +117,5 @@ public class Player : MonoBehaviour
             StartCoroutine(TakeDamage());
         }
     }
-    //public void SetScore()
-    //{
-    //    scoreText.text = "Score:" + score.ToString();
-    //}
+
 }

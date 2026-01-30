@@ -7,6 +7,7 @@ public class AsteroidScript : MonoBehaviour
 
     public Player player;
 
+    public ScoreScript scoreScript;
     //Sprites
     public Sprite[] asteroidsSprites;
 
@@ -27,8 +28,8 @@ public class AsteroidScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(asteroid);
-            //player.score += 10;
-            //player.SetScore();
+            //meant to update score but doesn't
+            scoreScript.UpdateScore(10);
         }
     }
     public void AsteriodSprite()
