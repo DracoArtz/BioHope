@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91b6ffb83d2efb544b1e6347ba1e93ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,5 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trainCar: {fileID: 3101545397554957045, guid: 59e372196ae0e0944a49127dfc4f1197, type: 3}
   difficultyModifier: 1
+  size: 10
   remaining: 10
   isEndLevel: 0
