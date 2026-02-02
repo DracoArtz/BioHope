@@ -7,7 +7,8 @@ public class AsteroidScript : MonoBehaviour
 
     public Player player;
 
-    public ScoreScript scoreScript;
+    public GameObject scoreManager;
+    ScoreScript scoreScript;
     //Sprites
     public Sprite[] asteroidsSprites;
 
@@ -15,12 +16,14 @@ public class AsteroidScript : MonoBehaviour
     void Start()
     {
         AsteriodSprite();
+        scoreManager = GameObject.FindWithTag("ScoreManager");
+        scoreScript = scoreManager.GetComponent<ScoreScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

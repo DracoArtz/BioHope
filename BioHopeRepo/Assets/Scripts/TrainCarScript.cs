@@ -18,13 +18,16 @@ public class TrainCarScript : MonoBehaviour
 
     bool isFacingLeft = false;
 
-    public ScoreScript scoreScript;
+    public GameObject scoreManager;
+    ScoreScript scoreScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         Physics2D.IgnoreCollision(trainCar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         spawnPoint = transform;
+        scoreManager = GameObject.FindWithTag("ScoreManager");
+        scoreScript = scoreManager.GetComponent<ScoreScript>();
     }
 
     // Update is called once per frame
@@ -62,7 +65,6 @@ public class TrainCarScript : MonoBehaviour
             scoreScript.UpdateScore(20);
             Destroy(collision.gameObject);
             Destroy(trainCar);
-
         }
     }
 }

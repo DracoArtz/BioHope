@@ -1372,6 +1372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1664436564998788373, guid: 8193081192a20a948b9ea12d8bf14a05, type: 3}
+      propertyPath: m_TagString
+      value: ScoreManager
+      objectReference: {fileID: 0}
     - target: {fileID: 2936255744609145141, guid: 8193081192a20a948b9ea12d8bf14a05, type: 3}
       propertyPath: score
       value: 0

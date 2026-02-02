@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - TrainCars
   - Wall2
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
