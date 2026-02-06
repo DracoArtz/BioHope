@@ -45,9 +45,13 @@ public class Player : MonoBehaviour
         {
             livesIMG[1].SetActive(false);
         }
-        else SceneManager.LoadScene("GameOver");
+        else if (lives == 0)
+        {
+            livesIMG[0].SetActive(false);
+            SceneManager.LoadScene("GameOver");
+        }
 
-    }
+        }
     public void Move(InputAction.CallbackContext ctx)
     {
         moveInputX = ctx.ReadValue<Vector2>().x;
