@@ -9,9 +9,11 @@ public class TrainScript : MonoBehaviour
     [SerializeField]
     float difficultyModifier = 1.0f;
     [SerializeField]
-    float size = 10;
-    float spawnSize = 10;
-    public float remaining = 10;
+    float size = 5;
+    [SerializeField]
+    float spawnSize = 5;
+    [SerializeField]
+    public float remaining = 5;
     bool isSpawning = false;
     public bool isEndLevel = false;
 

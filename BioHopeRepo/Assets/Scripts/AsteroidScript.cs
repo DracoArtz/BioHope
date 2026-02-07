@@ -29,10 +29,9 @@ public class AsteroidScript : MonoBehaviour
     {
         if(collision.tag == "Bullet")
         {
+            scoreScript.UpdateScore(5);
             Destroy(collision.gameObject);
             Destroy(asteroid);
-            //meant to update score but doesn't
-            scoreScript.UpdateScore(10);
         }
     }
     public void AsteriodSprite()

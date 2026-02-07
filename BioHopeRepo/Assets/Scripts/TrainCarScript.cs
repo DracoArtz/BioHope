@@ -5,7 +5,8 @@ public class TrainCarScript : MonoBehaviour
 {
     [SerializeField]
     GameObject trainCar;
-    float speed = 10;
+    [SerializeField]
+    float speed = 8;
 
     int dirX = -1;
     int dirY = -1;
@@ -17,6 +18,7 @@ public class TrainCarScript : MonoBehaviour
     public Player player;
 
     bool isFacingLeft = false;
+    public bool exploded = false;
 
     public GameObject scoreManager;
     ScoreScript scoreScript;
@@ -38,9 +40,7 @@ public class TrainCarScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
         rb2d.linearVelocity = new Vector2(dirX * speed, 0);
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -59,12 +59,13 @@ public class TrainCarScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bullet")
         {
+            exploded = true;
             var ia = Instantiate(asteroid, spawnPoint.gameObject.transform);
             ia.gameObject.transform.SetParent(null);
-            //meant to update score but doesn't
             scoreScript.UpdateScore(20);
             Destroy(collision.gameObject);
             Destroy(trainCar);
         }
     }
+
 }
