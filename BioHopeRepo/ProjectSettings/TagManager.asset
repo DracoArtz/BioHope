@@ -9,6 +9,7 @@ TagManager:
   - TrainCars
   - Wall2
   - ScoreManager
+  - ScoreText
   layers:
   - Default
   - TransparentFX
