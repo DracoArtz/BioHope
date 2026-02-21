@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AsteroidScript : MonoBehaviour
@@ -23,7 +24,10 @@ public class AsteroidScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(asteroid.gameObject.transform.position.y < -5)
+        {
+            asteroid.transform.position = new Vector2 (asteroid.transform.position.x, asteroid.transform.position.y + .1f);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
