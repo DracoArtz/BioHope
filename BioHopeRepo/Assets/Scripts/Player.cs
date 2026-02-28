@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     public GameObject[] livesIMG;
     bool canTakeDamage = true;
 
+    public AudioSource source;
+    public AudioClip damage;
+    public AudioClip bulletFired;
+
     //Animation Controls
     Animator anim;
 
@@ -101,11 +105,13 @@ public class Player : MonoBehaviour
         fired = true;
         var fb = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         fb.GetComponent<Rigidbody2D>().AddForce(spawnPoint.up * bulletSpeed, ForceMode2D.Impulse);
+        source.PlayOneShot(bulletFired);
         yield return new WaitForSeconds(.15f);
         fired = false;
     }
     IEnumerator TakeDamage()
     {
+        source.PlayOneShot(damage);
         if (canTakeDamage)
         {
             canTakeDamage = false;

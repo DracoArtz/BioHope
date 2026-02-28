@@ -17,6 +17,9 @@ public class TrainScript : MonoBehaviour
     bool isSpawning = false;
     public bool isEndLevel = false;
 
+    public AudioClip levelComplete;
+    public AudioSource audioSource;
+
     Transform spawnpoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +49,7 @@ public class TrainScript : MonoBehaviour
 
         if(isEndLevel)
         {
+            audioSource.PlayOneShot(levelComplete);
             isEndLevel = false;
             difficultyModifier = difficultyModifier + 0.1f;
             size = (size * difficultyModifier);
